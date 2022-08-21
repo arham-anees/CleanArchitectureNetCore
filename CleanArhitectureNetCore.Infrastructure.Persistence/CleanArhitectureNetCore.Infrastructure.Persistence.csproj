@@ -15,8 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArhitectureNetCore.Application\CleanArhitectureNetCore.Application.csproj" />
     <ProjectReference Include="..\CleanArhitectureNetCore.Domain\CleanArhitectureNetCore.Domain.csproj" />
+    <ProjectReference Include="..\CleanArhitectureNetCore.Application\CleanArhitectureNetCore.Application.csproj" />
   </ItemGroup>
-
 </Project>

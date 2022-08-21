@@ -5,6 +5,7 @@ using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,11 @@ namespace CleanArhitectureNetCore.Infrastructure.Persistence.Dapper.Repositories
 
         public IEnumerable<Value> Get()
         {
+            return new Value[] {
+                new Value{Val="test 1"},
+                new Value{Val="test 2"},
+                new Value{Val="test 3"},
+            };
             return Connection.Query<Value>(
                 Procedures.GetAllValues,
                 param: null,

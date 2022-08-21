@@ -1,6 +1,7 @@
 using CleanArhitectureNetCore.Application.Common;
 using CleanArhitectureNetCore.Infrastructure.Common;
 using CleanArhitectureNetCore.Infrastructure.Persistence.Common;
+using CleanArhitectureNetCore.WebApi.Helper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,7 +42,7 @@ namespace CleanArhitectureNetCore.WebApi
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Configuration["Jwt:Issuer"],
                     ValidAudience = Configuration["Jwt:Audience"],
-                    IssuerSigningKey = new RsaSecurityKey(Utilities.HelperService.GetRSAKeyFromPemFile("public.key.pem", "RSA")),
+                    IssuerSigningKey = new RsaSecurityKey(HelperService.ReadRsa("public.key.pem", "RSA")),
                 };
             });
             #endregion

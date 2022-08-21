@@ -348,3 +348,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+**/appsettings.json
+**/private.key.pem
+**/public.key.pem
+.DS_Store
+**/.DS_Store
