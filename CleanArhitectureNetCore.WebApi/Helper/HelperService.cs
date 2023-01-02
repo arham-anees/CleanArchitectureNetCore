@@ -2,16 +2,19 @@
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
+
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CleanArhitectureNetCore.WebApi.Helper
 {
     public static class HelperService
     {
-
-        public static RSAParameters ReadRsa(string name, string path)
+        public static RSAParameters ReadRsa(IConfiguration configuration, string name, string path)
         {
-            var key = File.ReadAllBytes($"{path}/{name}");
+     
+      // read RSA key
+      var key = File.ReadAllBytes($"{path}/{name}");
             //var rsa = RSA.Create();
             //rsa.ImportFromPem(privateKey.ToCharArray());
             //Values to store encrypted symmetric keys.

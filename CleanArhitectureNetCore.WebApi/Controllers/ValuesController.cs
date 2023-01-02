@@ -1,5 +1,6 @@
 ﻿using CleanArhitectureNetCore.Application.Services;
 using Microsoft.AspNetCore.Mvc;
+using CleanArhitectureNetCore.WebApi.ActionFilters;
 
 namespace CleanArhitectureNetCore.WebApi.Controllers
 {
@@ -13,6 +14,8 @@ namespace CleanArhitectureNetCore.WebApi.Controllers
         {
             _ValuesService = valuesService;
         }
+
+    [Authorize("user")]
         [HttpGet]
         [Route("Get")]
         public IActionResult GetValues()

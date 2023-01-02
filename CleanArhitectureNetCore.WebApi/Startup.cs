@@ -30,9 +30,14 @@ namespace CleanArhitectureNetCore.WebApi
             services.AddInfrastructure();
             services.AddServices();
             services.Configure<ExceptionLoggingPath>(Configuration.GetSection("ExceptionLoggingPath"));
-            #endregion
-            #region JWT
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+      #endregion
+      #region JWT
+      // read if encryption is enabled from configuration
+      // if will be used to set the token validation parameters
+      var encryptionEnabled = Configuration.GetValue<bool>("EncryptionEnabled");
+
+
+      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -42,7 +47,7 @@ namespace CleanArhitectureNetCore.WebApi
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Configuration["Jwt:Issuer"],
                     ValidAudience = Configuration["Jwt:Audience"],
-                    IssuerSigningKey = new RsaSecurityKey(HelperService.ReadRsa("public.key.pem", "RSA")),
+                    IssuerSigningKey = encryptionEnabled? new RsaSecurityKey(HelperService.ReadRsa(Configuration, "public.key.pem", "RSA")):null,
                 };
             });
             #endregion
