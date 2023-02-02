@@ -1,4 +1,6 @@
 ﻿
+using CleanArchitectureNetCore.Application.Common.Contracts;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +22,7 @@ namespace CleanArchitectureNetCore.Infrastructure.Persistence.EfMariaDb
         options.UseMySql(configuration.GetConnectionString("MariaDb"), ServerVersion.AutoDetect(configuration.GetConnectionString("MariaDb")));
       });
 
-      //services.AddTransient<IUnitOfWork, UnitOfWork>();
+      services.AddTransient<IUnitOfWork, UnitOfWork>();
 
       return services;
     }

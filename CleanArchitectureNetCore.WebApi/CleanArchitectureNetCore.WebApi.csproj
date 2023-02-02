@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -15,6 +15,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
     <None Remove="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CleanArchitectureNetCore.Infrastructure.Persistence.EfMariaDb\CleanArchitectureNetCore.Infrastructure.Persistence.EfMariaDb.csproj" />
     <ProjectReference Include="..\CleanArchitectureNetCore.Infrastructure.Persistence\CleanArchitectureNetCore.Infrastructure.Persistence.Dapper.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
