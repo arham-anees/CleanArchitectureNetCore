@@ -354,3 +354,5 @@ MigrationBackup/
 **/public.key.pem
 .DS_Store
 **/.DS_Store
+/CleanArchitectureNetCore.WebApi/Properties/launchSettings.json
+/CleanArhitectureNetCore.WebApi/Properties/launchSettings.json
